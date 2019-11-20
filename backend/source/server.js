@@ -26,7 +26,8 @@ io.on('connection', socket => {
 })
 
 mongoose.connect(
-  `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0-k1irx.gcp.mongodb.net/test?retryWrites=true&w=majority`,
+  // `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0-k1irx.gcp.mongodb.net/vanhack?retryWrites=true&w=majority`,
+  `mongodb://localhost/vanhack`,
   {
     useNewUrlParser: true
   }
@@ -44,4 +45,5 @@ app.use(express.json())
 app.use(routes)
 
 const port = process.env.PORT || 3333
+console.log(`Server listening on port ${port}`)
 server.listen(port)

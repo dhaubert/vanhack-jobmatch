@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require("mongoose");
 
 const JobSchema = new Schema(
   {
@@ -14,26 +14,47 @@ const JobSchema = new Schema(
       type: Boolean,
       required: true
     },
-    techs: {
-      type: String,
-      required: true
-    },
-    tags: {
-      type: String,
-      required: true
-    },
+    techs: [
+      {
+        type: String,
+        required: true
+      }
+    ],
+    tags: [
+      {
+        type: String,
+        required: true
+      }
+    ],
     experience: {
       type: String,
-      required: true
     },
     location: {
       type: String,
       required: true
-    }
+    },
+    salary: { type: String },
+    employer: {
+      type: Schema.Types.ObjectId,
+      ref: "Employer",
+      required: true
+    },
+    likes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Talent"
+      }
+    ],
+    dislikes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Talent"
+      }
+    ]
   },
   {
     timestamps: true
   }
-)
+);
 
-module.exports = model('Job', JobSchema)
+module.exports = model("Job", JobSchema);

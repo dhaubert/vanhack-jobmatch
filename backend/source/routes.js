@@ -1,13 +1,25 @@
 const express = require('express')
-const DevController = require('./controllers/Dev.js')
-const LikeController = require('./controllers/Like.js')
-const DislikeController = require('./controllers/Dislikes.js')
+const JobController = require('./controllers/Job.js')
+const TalentController = require('./controllers/Talent.js')
+const EmployerController = require('./controllers/Employer.js')
+const LikesController = require('./controllers/Like.js')
+const DislikesController = require('./controllers/Dislike.js')
+
+const AuthController = require('./controllers/Auth.js')
 
 const routes = express.Router()
 
-routes.get('/devs', DevController.index)
-routes.post('/devs', DevController.store)
-routes.post('/devs/:devId/likes', LikeController.store)
-routes.post('/devs/:devId/dislikes', DislikeController.store)
+// routes.get('/login', AuthController.index)
+
+routes.get('/jobs', JobController.index)
+// routes.get('/talent/:talentId/likes', TalentController.index)
+// routes.get('/jobs/:jobId/likes', JobController.index)
+
+routes.post('/jobs/:jobId/likes', LikesController.store)
+routes.post('/jobs/:jobId/dislikes', DislikesController.store)
+
+routes.post('/jobs', JobController.store)
+routes.post('/talent', TalentController.store)
+routes.post('/employer', EmployerController.store)
 
 module.exports = routes
