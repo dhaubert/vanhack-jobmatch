@@ -69,14 +69,12 @@ module.exports = {
       experience,
       location,
       salary,
-      isRemote
     } = request.body;
 
     techs = techs.map(tech => tech.toLowerCase());
     tags = tags.map(tag => tag.toLowerCase());
 
     location ? location.toLowerCase() : "";
-    isRemote = isRemote || false;
 
     const job = await Job.create({
       title,
@@ -87,7 +85,6 @@ module.exports = {
       location,
       salary,
       employer: user,
-      isRemote
     });
 
     delete job.likes;

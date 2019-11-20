@@ -9,7 +9,7 @@ const AuthController = require('./controllers/Auth.js')
 
 const routes = express.Router()
 
-// routes.get('/login', AuthController.index)
+routes.post('/login', AuthController.index)
 
 routes.get('/jobs', JobController.index)
 // routes.get('/talent/:talentId/likes', TalentController.index)

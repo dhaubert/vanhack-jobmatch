@@ -10,10 +10,6 @@ const JobSchema = new Schema(
       type: String,
       required: true
     },
-    isRemote: {
-      type: Boolean,
-      required: true
-    },
     techs: [
       {
         type: String,

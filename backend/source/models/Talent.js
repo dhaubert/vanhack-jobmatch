@@ -16,7 +16,6 @@ const TalentSchema = new Schema(
     },
     location: {
       type: String,
-      required: true
     },
     likes: [
       {
